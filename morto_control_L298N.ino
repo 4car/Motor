@@ -9,10 +9,6 @@
 int val=0;
 const int NXinput=6;
 
-// control speed
-const int PWM_FORWARD = 70;
-const int PWM_BACK=90;
-
 void setup() {
 pinMode (ENA, OUTPUT) ; 
 pinMode (IN1, OUTPUT);
@@ -20,26 +16,26 @@ pinMode (IN2, OUTPUT);
 
 }
 void Forward1(){  //OUTPUT1 & OUTPUT2
-analogWrite(ENA, PWM_FORWARD);
+analogWrite(ENA, 70);
 digitalWrite(IN1,HIGH);
 digitalWrite(IN2,LOW);
  }
 
 void Forward2(){  //OUTPUT3 & OUTPUT4
-analogWrite(ENB, PWM_FORWARD);
+analogWrite(ENB, 70);
 digitalWrite(IN3,LOW);
 digitalWrite(IN4,HIGH);
  }
 
  
 void back1(){
-analogWrite(ENA, PWM_BACK);
+analogWrite(ENA, 70);
 digitalWrite(IN1,LOW);
 digitalWrite(IN2,HIGH);
  }
 
 void back2(){
-analogWrite(ENB, PWM_BACK);
+analogWrite(ENB, 70);
 digitalWrite(IN3,HIGH);
 digitalWrite(IN4,LOW);
  }
@@ -57,7 +53,7 @@ digitalWrite(IN3,LOW);
 digitalWrite(IN4,LOW);
  }
 
-void loop(){
+/*void loop(){
   // nx 輸出需接上拉電阻10k~20k
   val = digitalRead(NXinput);
   if(val == HIGH){
@@ -68,4 +64,10 @@ void loop(){
     stop1();
     stop2();
   }
+}*/
+
+
+void loop(){
+  Forward1();
+  Forward2();
 }
